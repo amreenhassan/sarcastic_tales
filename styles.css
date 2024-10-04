@@ -20,7 +20,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1, h2, h3 {
     color: #4B0082;
     margin-bottom: 20px;
 }
@@ -28,6 +28,20 @@ h1 {
 p {
     font-size: 18px;
     margin-bottom: 15px;
+}
+
+button {
+    background-color: #4B0082;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #8A2BE2;
 }
 
 input[type="text"] {
@@ -38,21 +52,7 @@ input[type="text"] {
     border: 2px solid #4B0082;
 }
 
-button {
-    background-color: #4B0082;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #8A2BE2;
-}
-
-#story {
+#story, #tarotReading {
     margin-top: 20px;
     font-style: italic;
 }
-
