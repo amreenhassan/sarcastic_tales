@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarcastic Tales - Tarot Reading</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Would you like a Tarot Card Reading?</h1>
+        <p>We can generate a reading based on your horoscope sign!</p>
+        <button id="yesBtn">Yes, give me a Tarot reading!</button>
+        <button id="noBtn">No, I’m good. Take me back.</button>
+        <div id="tarotResult" style="display: none;">
+            <h2>Your Tarot Reading:</h2>
+            <p id="reading"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            // Simulate a Tarot card reading based on the user's horoscope
+            const horoscopeSigns = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
+            const tarotCards = ['The Fool', 'The Magician', 'The High Priestess', 'The Empress', 'The Emperor', 'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit'];
+
+            // Randomly assign a horoscope and Tarot card for now (replace with real API later)
+            const userHoroscope = horoscopeSigns[Math.floor(Math.random() * horoscopeSigns.length)];
+            const tarotCard = tarotCards[Math.floor(Math.random() * tarotCards.length)];
+
+            // Display the reading
+            const readingText = `Based on your horoscope sign, ${userHoroscope}, the Tarot card drawn for you is: ${tarotCard}. This card signifies a time of great change, new opportunities, or a challenge ahead. Embrace it!`;
+            document.getElementById('reading').textContent = readingText;
+            document.getElementById('tarotResult').style.display = 'block';
+        });
+
+        document.getElementById('noBtn').addEventListener('click', function() {
+            // Redirect back to the greeting page or any other page
+            window.location.href = 'greet.html';
+        });
+    </script>
+</body>
+</html>
