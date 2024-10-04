@@ -1,25 +1,42 @@
+/* Reset basic styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styling with Pantone Color Palettes */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: lavender;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #F5DF4D, #939597, #FF6F61, #98B4D4, #5A7247);
+    background-size: 150% 150%;
+    animation: gradientAnimation 10s ease infinite;
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
+/* Keyframes for animated background gradient */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container styling */
+.content {
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 50px;
     text-align: center;
-    background-color: #FDE4F0;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
 }
 
+/* Heading and Text */
 h1, h2, h3 {
     color: #4B0082;
     margin-bottom: 20px;
@@ -30,6 +47,7 @@ p {
     margin-bottom: 15px;
 }
 
+/* Button Styling */
 button {
     background-color: #4B0082;
     color: white;
@@ -44,6 +62,7 @@ button:hover {
     background-color: #8A2BE2;
 }
 
+/* Input Styling */
 input[type="text"] {
     width: 80%;
     padding: 10px;
@@ -52,7 +71,9 @@ input[type="text"] {
     border: 2px solid #4B0082;
 }
 
+/* Tarot Reading and Story Styling */
 #story, #tarotReading {
     margin-top: 20px;
     font-style: italic;
 }
+
