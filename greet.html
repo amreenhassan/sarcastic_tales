@@ -10,13 +10,33 @@
 <body>
     <div class="container">
         <h1>Hello, <span id="userName"></span>!</h1>
-        <p>Welcome to Sarcastic Tales! Ready for a laugh?</p>
-        <p>Choose a word to generate a funny story:</p>
-        <form id="wordForm">
-            <input type="text" id="wordInput" placeholder="Enter a word" required>
-            <button type="submit">Generate Story</button>
-        </form>
-        <p id="story"></p>
+        <p>Welcome to Sarcastic Tales! You can either get a Tarot card reading or generate a funny story.</p>
+        
+        <!-- Options to choose -->
+        <button id="tarotBtn">Tarot Card Reading</button>
+        <button id="storyBtn">Generate a Funny Story</button>
+        
+        <!-- Tarot Reading Section -->
+        <div id="tarotSection" style="display: none;">
+            <h2>Would you like a Tarot card reading?</h2>
+            <button id="yesTarotBtn">Yes, give me a Tarot reading!</button>
+            <button id="noTarotBtn">No, I’m good. Take me back.</button>
+            <div id="tarotResult" style="display: none;">
+                <h3>Your Tarot Reading:</h3>
+                <p id="tarotReading"></p>
+            </div>
+        </div>
+
+        <!-- Funny Story Section -->
+        <div id="storySection" style="display: none;">
+            <h2>Generate a Funny Story</h2>
+            <p>Choose a word to generate a funny story:</p>
+            <form id="wordForm">
+                <input type="text" id="wordInput" placeholder="Enter a word" required>
+                <button type="submit">Generate Story</button>
+            </form>
+            <p id="story"></p>
+        </div>
     </div>
 
     <script>
@@ -25,15 +45,42 @@
         const name = urlParams.get('name');
         document.getElementById('userName').textContent = name;
 
-        // Generate a funny story based on the word input
+        // Show Tarot section when the Tarot button is clicked
+        document.getElementById('tarotBtn').addEventListener('click', function() {
+            document.getElementById('storySection').style.display = 'none';
+            document.getElementById('tarotSection').style.display = 'block';
+        });
+
+        // Show Story section when the Story button is clicked
+        document.getElementById('storyBtn').addEventListener('click', function() {
+            document.getElementById('tarotSection').style.display = 'none';
+            document.getElementById('storySection').style.display = 'block';
+        });
+
+        // Tarot card reading logic
+        document.getElementById('yesTarotBtn').addEventListener('click', function() {
+            const horoscopeSigns = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
+            const tarotCards = ['The Fool', 'The Magician', 'The High Priestess', 'The Empress', 'The Emperor', 'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit'];
+
+            const userHoroscope = horoscopeSigns[Math.floor(Math.random() * horoscopeSigns.length)];
+            const tarotCard = tarotCards[Math.floor(Math.random() * tarotCards.length)];
+
+            const tarotReading = `Based on your horoscope sign, ${userHoroscope}, the Tarot card drawn for you is: ${tarotCard}. This card signifies a time of great change, new opportunities, or challenges ahead. Embrace it!`;
+            document.getElementById('tarotReading').textContent = tarotReading;
+            document.getElementById('tarotResult').style.display = 'block';
+        });
+
+        document.getElementById('noTarotBtn').addEventListener('click', function() {
+            document.getElementById('tarotSection').style.display = 'none';
+        });
+
+        // Funny story generation logic
         document.getElementById('wordForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const word = document.getElementById('wordInput').value;
             const story = `Once upon a time, a ${word} decided to take a nap. But little did it know, the universe had other plans... involving flying tacos and tap-dancing elephants!`;
             document.getElementById('story').textContent = story;
         });
-        <p>Want a Tarot card reading?</p>
-<a href="tarot.html">Click here for a Tarot reading!</a>
     </script>
 </body>
 </html>
